@@ -6,27 +6,26 @@ namespace CSharp.Homework.Class04.Task04
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter sentece: ");
+            Console.WriteLine("Enter word:");
             string word = Console.ReadLine();
 
             CaseInsensitive(word);
-
             Console.ReadLine();
         }
 
-        public static void CaseInsensitive(string word)
+        static void CaseInsensitive(string word)
         {
             string newWord = string.Empty;
 
-            foreach (char ch in word)
+            foreach (char c in word)
             {
-                if (Char.IsUpper(ch))
+                if (Char.IsUpper(c))
                 {
-                    newWord += Char.ToLower(ch).ToString();
+                    newWord += Char.ToLower(c).ToString();
                 }
-                if (Char.IsLower(ch))
+                else
                 {
-                    newWord += Char.ToUpper(ch).ToString();
+                    newWord += Char.ToUpper(c).ToString();
                 }
             }
 
