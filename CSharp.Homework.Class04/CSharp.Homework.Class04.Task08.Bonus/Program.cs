@@ -6,26 +6,18 @@ namespace CSharp.Homework.Class04.Task08.Bonus
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter your date of birth: (1996/11/28)");
-            Console.WriteLine("Enter year: ");
-            bool isParsed = int.TryParse(Console.ReadLine(), out int year);
-            Console.WriteLine("Enter month: ");
-            bool isParsed2 = int.TryParse(Console.ReadLine(), out int month);
-            Console.WriteLine("Enter day: ");
-            bool isParsed3 = int.TryParse(Console.ReadLine(), out int day);
+            Console.WriteLine("Enter Date of birth: MM/dd/yyyy");
+            string userInput = Console.ReadLine();
 
-            DateTime dob = new DateTime(year, month, day);
-
-            AgeCalculator(dob);
+            Console.WriteLine("You are {0} years old", AgeCalculator(userInput));
 
             Console.ReadLine();
         }
 
-        public static void AgeCalculator(DateTime dob)
+        static int AgeCalculator(string input)
         {
-            int userDob = DateTime.Now.Year - dob.Year;
-
-            Console.WriteLine("Your age is: " + userDob);
+            DateTime dob = DateTime.Parse(input);
+            return DateTime.Now.Year - dob.Year;
         }
     }
 }
