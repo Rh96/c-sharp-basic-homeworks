@@ -6,32 +6,33 @@ namespace CSharp.Homework.Class04.Task01
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter word: ");
+            Console.Write("Enter word: ");
             string word = Console.ReadLine();
 
-            Palindrome(word);
+            IsPalindrome(word);
 
             Console.ReadLine();
         }
 
-        public static void Palindrome(string input)
+        static bool IsPalindrome(string word)
         {
-            string result = string.Empty;
-                        
-                for (int i = input.Length - 1; i >= 0; i--)
-                {
-                    result += input[i];
-                }
+            string newWord = string.Empty;
 
-                if (result == input)
-                {
-                    Console.WriteLine("Is palindrome");
-                }
-                else
-                {
-                    Console.WriteLine("Not palindrome");
-                }
-            
+            for (int i = word.Length - 1; i >= 0; i--)
+            {
+                newWord += word[i];
+            }
+
+            if (newWord == word)
+            {
+                Console.WriteLine("The word is palindrome: {0} == {1}", newWord, word);
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("The word is not palindrome: {0} != {1}", newWord, word);
+                return false;
+            }
         }
     }
 }
