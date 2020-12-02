@@ -6,33 +6,32 @@ namespace CSharp.Homework.Class04.Task05
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter a character: ");
-            bool isParsed = char.TryParse(Console.ReadLine(), out char ch);
+            Console.WriteLine("Enter character:");
+            char.TryParse(Console.ReadLine(), out char ch);
 
-            IsAlphabet(ch);
+            CheckAlphabet(ch);
 
             Console.ReadLine();
         }
 
-        public static void IsAlphabet(char ch)
+        static void CheckAlphabet(char ch)
         {
-            if(ch >= 'a' && ch <= 'z' || ch >= 'A' && ch <= 'Z')
+            if (ch >= 'a' && ch <= 'z' || ch >= 'A' && ch <= 'Z')
             {
-                Console.WriteLine("Is alphabet");
+                Console.WriteLine($"The entered character {ch} is an Alphabet!");
 
                 if (Char.IsUpper(ch))
                 {
-                    Console.WriteLine("The character is Upper");
+                    Console.WriteLine($"The entered character {ch} is UpperCase!");
                 }
-                if (Char.IsLower(ch))
+                else
                 {
-                    Console.WriteLine("The character is Lower");
+                    Console.WriteLine($"The entered character {ch} is LowerCase!");
                 }
-
             }
             else
             {
-                Console.WriteLine("Is not alphabet");
+                Console.WriteLine($"The entered character {ch} is not Alphabet!");
             }
         }
     }
