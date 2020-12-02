@@ -6,34 +6,56 @@ namespace CSharp.Homework.Class03.Task02
     {
         static void Main(string[] args)
         {
-            string[] group1 = new string[]
-            {
-                "Rade","Mare","Trale","Stojancho","Ivko",
-            };
+            string[] studentsG1 = new string[] { };
+            string[] studentsG2 = new string[] { };
 
-            string[] group2 = new string[]
-            {
-                "Zdravko","Petko","Stanko","Branko","Trajko",
-            };
+            int count = 0;
+            int i = 0;
 
-            Console.WriteLine("Enter student group: (there are 1 and 2)");
-            bool isParsed = int.TryParse(Console.ReadLine(), out int userChoice);
-
-            if (userChoice == 1)
+            Console.WriteLine("Enter student name for G1:");
+            while (count < 5)
             {
-                Console.WriteLine("Students from group 1:");
-                foreach (var item in group1)
-                {
-                    Console.WriteLine(item);
-                }
+                string studentG1 = Console.ReadLine();
+
+                Array.Resize(ref studentsG1, studentsG1.Length + 1);
+                studentsG1[studentsG1.Length - 1] = studentG1;
+
+                count++;
             }
-            if (userChoice == 2)
+
+            Console.WriteLine("Enter student name for G2:");
+            while (i < 5)
             {
-                Console.WriteLine("Students from group 2:\n");
-                foreach (var item in group2)
-                {
-                    Console.WriteLine(item);
-                }
+                string studentG2 = Console.ReadLine();
+
+                Array.Resize(ref studentsG2, studentsG2.Length + 1);
+                studentsG2[studentsG2.Length - 1] = studentG2;
+
+                i++;
+            }
+
+            Console.WriteLine("Enter student group: there are 1 and 2");
+            int.TryParse(Console.ReadLine(), out int choice);
+
+            switch (choice)
+            {
+                case 1:
+                    Console.WriteLine("The students from G1 are:");
+                    foreach (string student in studentsG1)
+                    {
+                        Console.WriteLine(student);
+                    }
+                    break;
+                case 2:
+                    Console.WriteLine("The students from G2 are:");
+                    foreach (string student in studentsG2)
+                    {
+                        Console.WriteLine(student);
+                    }
+                    break;
+                default:
+                    Console.WriteLine("Invalid input or out of range!");
+                    break;
             }
             Console.ReadLine();
         }
