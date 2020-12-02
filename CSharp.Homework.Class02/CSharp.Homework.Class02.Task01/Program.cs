@@ -6,42 +6,39 @@ namespace CSharp.Homework.Class02.Task01
     {
         static void Main(string[] args)
         {
-            // input two variables and one operator
-            Console.Write("Enter your first number: ");
-            bool isParsed = double.TryParse(Console.ReadLine(), out double firstNumber);
-            Console.Write("Enter your second number: ");
-            bool isParsed2 = double.TryParse(Console.ReadLine(), out double secondNumber);
-            Console.Write("Enter operator: (+, -, *, /)");
-            bool isParsed3 = char.TryParse(Console.ReadLine(), out char operation);
+            Console.WriteLine("Enter first number:");
+            double.TryParse(Console.ReadLine(), out double num1);
 
-            double result = 0;
+            Console.WriteLine("Enter second number:");
+            double.TryParse(Console.ReadLine(), out double num2);
 
-            if (operation == '+')
+            Console.WriteLine("Enter operation:");
+            char.TryParse(Console.ReadLine(), out char operation);
+
+            switch (operation)
             {
-                result = firstNumber + secondNumber;
-                Console.WriteLine("The result is: " + result);
-            }
-            if (operation == '-')
-            {
-                result = firstNumber - secondNumber;
-                Console.WriteLine("The result is: " + result);
-            }
-            if (operation == '*')
-            {
-                result = firstNumber * secondNumber;
-                Console.WriteLine("The result is: " + result);
-            }
-            if (operation == '/')
-            {
-                if (secondNumber == 0)
-                {
-                    Console.WriteLine("Cannot divide by zero!");
-                }
-                else
-                {
-                    result = firstNumber / secondNumber;
-                    Console.WriteLine("The result is: " + result);
-                }
+                case '+':
+                    Console.WriteLine("The result is: {0}", num1 + num2);
+                    break;
+                case '-':
+                    Console.WriteLine("The result is: {0}", num1 - num2);
+                    break;
+                case '*':
+                    Console.WriteLine("The result is: {0}", num1 * num2);
+                    break;
+                case '/':
+                    if (num2 == 0)
+                    {
+                        Console.WriteLine("Cannot divide by zero!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("The result is: {0}", num1 / num2);
+                    }
+                    break;
+                default:
+                    Console.WriteLine("Invalid input!");
+                    break;
             }
 
             Console.ReadLine();
