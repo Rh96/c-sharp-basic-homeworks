@@ -9,21 +9,23 @@ namespace CSharp.Homework.Class01.App
         {
             Console.WriteLine("Traffic light...\n");
 
-            Thread.Sleep(3000);
+            Thread.Sleep(2000);
 
-            Console.ForegroundColor = ConsoleColor.Black;
             Console.BackgroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.Black;
             Console.WriteLine("Red light - STOP!\n");
 
-            Thread.Sleep(3000);
+            Thread.Sleep(2000);
 
             Console.BackgroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Yellow light - PREPARE!\n");
 
-            Thread.Sleep(3000);
+            Thread.Sleep(2000);
 
             Console.BackgroundColor = ConsoleColor.Green;
             Console.WriteLine("Green light - GO!");
+
+            Console.ResetColor();
 
             Console.ReadLine();
         }
