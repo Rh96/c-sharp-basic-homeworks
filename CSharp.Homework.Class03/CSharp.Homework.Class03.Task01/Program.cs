@@ -6,28 +6,32 @@ namespace CSharp.Homework.Class03.Task01
     {
         static void Main(string[] args)
         {
-            int[] arrayOfIntegers = new int[6];
-            int sumOfEven = 0;
+            int[] arrayOfNumbers = new int[] { };
 
-            Console.WriteLine("Enter 6 numbers: ");
+            int sum = 0;
+            int count = 0;
 
-            int i = 0;
-            while(i < arrayOfIntegers.Length)
+            Console.WriteLine("Enter 6 numbers:");
+
+            while (count < 6)
             {
-                bool isParsed = int.TryParse(Console.ReadLine(), out arrayOfIntegers[i]);
-                i++;
+                int.TryParse(Console.ReadLine(), out int num);
+
+                Array.Resize(ref arrayOfNumbers, arrayOfNumbers.Length + 1);
+                arrayOfNumbers[arrayOfNumbers.Length - 1] = num;
+
+                count++;
             }
 
-            i = 0;
-            while(i < 6)
+            foreach (int n in arrayOfNumbers)
             {
-                if(arrayOfIntegers[i] % 2 == 0)
+                if (n % 2 == 0)
                 {
-                    sumOfEven += arrayOfIntegers[i];
+                    sum += n;
                 }
-                i++;
             }
-            Console.WriteLine("The sum of even numbers in array is: " + sumOfEven);
+
+            Console.WriteLine("The sum of even numbers in array is: " + sum);
 
             Console.ReadLine();
         }
