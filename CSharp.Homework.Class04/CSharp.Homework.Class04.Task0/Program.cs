@@ -6,31 +6,30 @@ namespace CSharp.Homework.Class04.Task0
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter number: ");
-            bool isParsed = int.TryParse(Console.ReadLine(), out int number);
+            Console.Write("Enter number: ");
+            int.TryParse(Console.ReadLine(), out int num);
 
-            Substrings(number);
+            Console.WriteLine(Substring(num));
 
             Console.ReadLine();
         }
 
-        public static void Substrings(int number)
+        static string Substring(int num)
         {
-            string word = "Hello from SEDC CodeAcademy v7.0";
-            string newWordLength = string.Empty;
-            string errorMessage = "can't enter an integer larger than the length of the string";
+            string word = "Hello from SEDC Codecademy v7.0";
+            string newWord = string.Empty;
 
-
-            if (number <= word.Length)
+            if (num < 1 || num > word.Length)
             {
-                newWordLength = word.Substring(0, number);
-                Console.WriteLine("New word: " + newWordLength);
-                Console.WriteLine("The length of the word is: " + newWordLength.Length);
+                Console.WriteLine("Can't enter an integer larger than the length of the string!");
             }
+
             else
             {
-                Console.WriteLine(errorMessage);
+                newWord = word.Substring(0, num);
             }
+
+            return string.Format("{0}\nLength: {1}", newWord, newWord.Length);
         }
     }
 }
