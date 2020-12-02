@@ -6,28 +6,38 @@ namespace CSharp.Homework.Class04.Task02
     {
         static void Main(string[] args)
         {
-            float[] realNumbers = new float[]
-            {
-                1.2f,1.8f,1.6f,1.4f,1.5f,1.9f,
-            };
+            double[] arrayOfNumbers = new double[] { };
 
-            GreatesNumberOfRealNumbers(realNumbers);
+            int counter = 0;
+
+            Console.WriteLine("Enter 5 numbers:");
+            while (counter < 5)
+            {
+                double.TryParse(Console.ReadLine(), out double num);
+
+                Array.Resize(ref arrayOfNumbers, arrayOfNumbers.Length + 1);
+                arrayOfNumbers[arrayOfNumbers.Length - 1] = num;
+
+                counter++;
+            }
+
+            Console.WriteLine("The gratest value is: " + GreatestValue(arrayOfNumbers));
 
             Console.ReadLine();
         }
 
-        public static void GreatesNumberOfRealNumbers(float[] arrayOfRealNumbers)
+        static double GreatestValue(double[] array)
         {
-            float temp = 0;
-            for (int i = 0; i < arrayOfRealNumbers.Length; i++)
+            double max = 0;
+            for (int i = 0; i < array.Length; i++)
             {
-                if (arrayOfRealNumbers[i] >= temp)
+                if (max < array[i])
                 {
-                    temp = arrayOfRealNumbers[i];
+                    max = array[i];
                 }
             }
 
-            Console.WriteLine("The greatest value stored in array of real numbers is: " + temp);
+            return max;
         }
     }
 }
