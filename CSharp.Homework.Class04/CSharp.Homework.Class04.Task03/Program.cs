@@ -6,40 +6,37 @@ namespace CSharp.Homework.Class04.Task03
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter word: ");
-            string wordSearch = Console.ReadLine();
+            Console.WriteLine("Enter word:");
+            string word = Console.ReadLine();
 
-            NumberOfDigits(wordSearch);
-            Vowels(wordSearch);
+            Console.WriteLine("Number of vowels: " + Vowels(word));
+            NumberOfDigits(Vowels(word));
 
             Console.ReadLine();
         }
-
-        public static void NumberOfDigits(string wordSearch)
+        static void NumberOfDigits(int num)
         {
-            int numberOfDigits = 0;
-
-            for (int i = 0; i < wordSearch.Length; i++)
+            int totalNumbers = 0;
+            while (num != 0)
             {
-                numberOfDigits += wordSearch[i].ToString().Length;
+                totalNumbers++;
+                num /= 10;
             }
-
-            Console.WriteLine("The ammount of digits is: " + numberOfDigits);
+            Console.WriteLine("Total numbers calculated: {0}", totalNumbers);
         }
 
-        public static void Vowels(string wordSearch)
+        static int Vowels(string word)
         {
-            int totalVowels = 0;
+            int count = 0;
 
-            for (int i = 0; i < wordSearch.Length; i++)
+            for (int i = 0; i < word.Length; i++)
             {
-                if (wordSearch.Contains("a") || wordSearch.Contains("e") || wordSearch.Contains("i") || wordSearch.Contains("o") || wordSearch.Contains("u"))
+                if (word[i] == 'a' || word[i] == 'e' || word[i] == 'i' || word[i] == 'o' || word[i] == 'u')
                 {
-                    totalVowels += wordSearch[i].ToString().Length;
+                    count++;
                 }
             }
-
-            Console.WriteLine("The string contains: " + totalVowels + " vowels");
+            return count;
         }
     }
 }
