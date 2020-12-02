@@ -6,28 +6,22 @@ namespace CSharp.Homework.Class04.Task06
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter word: ");
+            Console.WriteLine("Enter word:");
             string word = Console.ReadLine();
-            Console.WriteLine("Enter pattern: ");
-            string pattern = Console.ReadLine();
 
-            SubstringAppearance(word, pattern);
+            Console.WriteLine("Word you would like to search:");
+            string wordSearch = Console.ReadLine();
+
+            CountOccurences(word, wordSearch);
 
             Console.ReadLine();
         }
 
-        public static void SubstringAppearance(string word, string pattern)
+        static void CountOccurences(string word, string wordSearch)
         {
-            int count = 0;
-            int i = 0;
-            while((i = word.IndexOf(pattern, i)) != -1)
-            {
-                i += pattern.Length;
-                count++;
-            }
+            int occurences = word.Split(wordSearch).Length - 1;
 
-            Console.WriteLine("The number of substring occurences in that string are: " +
-                count);
+            Console.WriteLine("Occurences: " + occurences);
         }
     }
 }
